@@ -12,7 +12,7 @@ import java.net.URL;
 
 public class SimpleTest {
     public RemoteWebDriver driver;
-    private static final String SELENIUM_URL = "http://localhost:4444/wd/hub";
+    private static final String SELENIUM_URL = "http://jenkins.etm.corp:4444/wd/hub";
 
     @BeforeTest
     public void start() throws Exception {
