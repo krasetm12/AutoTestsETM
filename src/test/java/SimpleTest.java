@@ -24,7 +24,7 @@ public class SimpleTest {
     
     @Test
     public void simpleTest() throws Exception {
-        this.driver.get("https://google.com/");
+        this.driver.get("https://idev.etm.ru/ipro3");
         this.takeSceenshot();
     }
 
