@@ -106,6 +106,69 @@ public class SimpleTest {
 
         this.driver.findElement(By.xpath("//button[@title='Выход']")).click();
     }
+    @Test
+
+
+    public void test12MakingAnOrderByCDEKPayUponReceipt() throws Exception{
+        this.driver.get(SITE_URL);
+        this.takeSceenshot();
+        this.driver.findElement(By.xpath("//span[contains(.,'Все понятно')]")).click();
+        this.takeSceenshot();
+        this.driver.findElement(By.xpath("//span[contains(.,'Все верно')]")).click();
+        this.takeSceenshot();
+        this.driver.findElement(By.xpath("//span[contains(.,'Вход / Регистрация')]")).click();
+        this.takeSceenshot();
+        driver.findElement(By.name("login")).clear();
+        driver.findElement(By.name("login")).sendKeys("9216572712");
+        driver.findElement(By.name("password")).clear();
+        driver.findElement(By.name("password")).sendKeys("qakras123");
+        driver.findElement(By.xpath("//span[contains(.,'Войти в систему')]")).click();
+
+        /*try {
+            WebElement button = driver.findElement(By.xpath("//a[@href='/catalog']"));
+            button.click();
+        }
+        catch(org.openqa.selenium.StaleElementReferenceException ex)
+        {
+            WebElement button = driver.findElement(By.xpath("//a[@href='/catalog']"));
+            button.click();
+        }
+*/
+        try {
+            WebElement button = this.driver.findElement(By.xpath("//a[@data-testid='top-menu-catalog']"));
+            button.click();
+        }
+        catch(org.openqa.selenium.StaleElementReferenceException ex)
+        {
+            WebElement button = this.driver.findElement(By.xpath("//a[@data-testid='top-menu-catalog']"));
+            button.click();
+        }
+        this.takeSceenshot();
+
+
+
+        driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-1']//input[@value=''])[1]")).click();
+        driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-1']//input[@value=''])[1]")).sendKeys("10");
+        driver.findElement(By.xpath("//div[@data-testid='catalog-item-product-1']//span[@class='MuiButton-label']")).click();
+        driver.findElement(By.xpath("//button[@class='MuiButtonBase-root MuiIconButton-root jss4']")).click();
+        driver.findElement(By.xpath("//p[@data-testid='go-to-basket']")).click();
+
+        driver.findElement(By.xpath("//*[@data-testid='go-checkout-btn']")).click();
+        waitForElementPresent(By.xpath("//div[contains(text(),'Самовывоз ЭТМ')]"),"the PickUp is not issued",5);
+        driver.findElement(By.xpath("//*[contains(.,'Самовывоз ЭТМ')]")).click();
+        //driver.findElement(By.xpath("//div[@data-testid='option-delivery']")).click();
+        clickVisible(By.xpath("//div[contains(.,'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]") ,"not click delivery point", 5 );
+        waitForElementPresent(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]"),"the delivery point is not issued",5);
+        driver.findElement(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]")).click();
+        driver.findElement(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]")).click();
+
+        driver.findElement(By.xpath("//div[contains(text(),'При получении')]")).click();
+        driver.findElement(By.xpath("//span[contains(.,'Оформить заказ')]")).click();
+        waitForElementPresent(By.xpath("//p[contains(.,'Благодарим вас за использование системы iPRO!')]"),"the order is not issued",5);
+        driver.findElement(By.xpath("//span[contains(.,'Перейти в Заказы')]")).click();
+
+        driver.findElement(By.xpath("//button[@title='Выход']")).click();
+    }
     private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds) {
         WebDriverWait wait = new WebDriverWait(this.driver, timeoutInSeconds);
         wait.withMessage(error_message + "\n");
