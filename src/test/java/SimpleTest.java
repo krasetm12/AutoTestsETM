@@ -38,7 +38,7 @@ public class SimpleTest {
         this.driver.get(SITE_URL);
         this.takeSceenshot();
     }*/
-    @Test
+   /* @Test
 
 
     public void test13MakingAnOrderByPickUpByWriteScore() throws Exception{
@@ -57,7 +57,7 @@ public class SimpleTest {
         this.takeSceenshot();
         this.driver.findElement(By.xpath("//span[contains(.,'Войти в систему')]")).click();
         this.takeSceenshot();
-        /*try {
+        *//*try {
             WebElement button = this.driver.findElement(By.xpath("//a[@href='/catalog']"));
             button.click();
         }
@@ -65,7 +65,7 @@ public class SimpleTest {
         {
             WebElement button = this.driver.findElement(By.xpath("//a[@href='/catalog']"));
             button.click();
-        }*/
+        }*//*
     try {
       WebElement button = this.driver.findElement(By.xpath("//a[@data-testid='top-menu-catalog']"));
       button.click();
@@ -89,12 +89,12 @@ public class SimpleTest {
         this.driver.findElement(By.xpath("//*[@data-testid='go-checkout-btn']")).click();
         waitForElementPresent(By.xpath("//div[contains(text(),'Самовывоз ЭТМ')]"),"the PickUp is not issued",5);
         //driver.findElement(By.xpath("//div[contains(text(),'Самовывоз ЭТМ')]")).click();
-    /*driver.findElement(By.xpath("//img[@src='/assets/img/logo_etm_blue.png']")).click();
+    *//*driver.findElement(By.xpath("//img[@src='/assets/img/logo_etm_blue.png']")).click();
     driver.findElement(By.xpath("//img[@src='/assets/img/logo_etm_blue.png']")).click();
     clickVisible(By.xpath("//div[contains(.,'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]") ,"not click delivery point", 5 );
     waitForElementPresent(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]"),"the delivery point is not issued",5);
     driver.findElement(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]")).click();
-    driver.findElement(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]")).click();*/
+    driver.findElement(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]")).click();*//*
 
         this.driver.findElement(By.xpath("//div[@data-testid='option-payment-1']")).click();
         this.driver.findElement(By.xpath("//span[contains(.,'Оформить заказ')]")).click();
@@ -105,13 +105,14 @@ public class SimpleTest {
         this.driver.findElement(By.xpath("//span[contains(.,'Перейти в Документы')]")).click();
 
         this.driver.findElement(By.xpath("//button[@title='Выход']")).click();
-    }
+    }*/
     @Test
 
 
     public void test12MakingAnOrderByCDEKPayUponReceipt() throws Exception{
         this.driver.get(SITE_URL);
         this.takeSceenshot();
+        clickVisible(By.xpath("//button[@data-testid='understand-button']"),"все понятно появилось", 5);
         this.driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
         this.takeSceenshot();
         this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
