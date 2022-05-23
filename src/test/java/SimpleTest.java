@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class SimpleTest {
     public RemoteWebDriver driver;
@@ -23,6 +24,8 @@ public class SimpleTest {
                 new URL(SELENIUM_URL),
                 new ChromeOptions()
         );
+        this.driver.manage().window().maximize();
+        this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
     @AfterTest
     public void closeSeleniumSession() {
