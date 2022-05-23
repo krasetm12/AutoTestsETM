@@ -44,11 +44,11 @@ public class SimpleTest {
     public void test13MakingAnOrderByPickUpByWriteScore() throws Exception{
         this.driver.get(SITE_URL);
         this.takeSceenshot();
-        this.driver.findElement(By.xpath("//span[contains(.,'Все понятно')]")).click();
+        this.driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
         this.takeSceenshot();
-        this.driver.findElement(By.xpath("//span[contains(.,'Все верно')]")).click();
+        this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
         this.takeSceenshot();
-        this.driver.findElement(By.xpath("//span[contains(.,'Вход / Регистрация')]")).click();
+        this.driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
         this.takeSceenshot();
         this.driver.findElement(By.name("login")).clear();
         this.driver.findElement(By.name("login")).sendKeys("60004392kal");
@@ -112,17 +112,17 @@ public class SimpleTest {
     public void test12MakingAnOrderByCDEKPayUponReceipt() throws Exception{
         this.driver.get(SITE_URL);
         this.takeSceenshot();
-        this.driver.findElement(By.xpath("//span[contains(.,'Все понятно')]")).click();
+        this.driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
         this.takeSceenshot();
-        this.driver.findElement(By.xpath("//span[contains(.,'Все верно')]")).click();
+        this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
         this.takeSceenshot();
-        this.driver.findElement(By.xpath("//span[contains(.,'Вход / Регистрация')]")).click();
+        this.driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
         this.takeSceenshot();
         driver.findElement(By.name("login")).clear();
         driver.findElement(By.name("login")).sendKeys("9216572712");
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys("qakras123");
-        driver.findElement(By.xpath("//span[contains(.,'Войти в систему')]")).click();
+        driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
 
         /*try {
             WebElement button = driver.findElement(By.xpath("//a[@href='/catalog']"));
