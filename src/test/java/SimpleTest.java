@@ -41,25 +41,26 @@ public class SimpleTest {
     public void test13MakingAnOrderByPickUpByWriteScore() throws Exception{
         this.driver.get(SITE_URL);
         this.takeSceenshot();
-        driver.findElement(By.xpath("//span[contains(.,'Все понятно')]")).click();
+        this.driver.findElement(By.xpath("//span[contains(.,'Все понятно')]")).click();
         this.takeSceenshot();
-        driver.findElement(By.xpath("//span[contains(.,'Все верно')]")).click();
+        this.driver.findElement(By.xpath("//span[contains(.,'Все верно')]")).click();
         this.takeSceenshot();
-        driver.findElement(By.xpath("//span[contains(.,'Вход / Регистрация')]")).click();
+        this.driver.findElement(By.xpath("//span[contains(.,'Вход / Регистрация')]")).click();
         this.takeSceenshot();
-        driver.findElement(By.name("login")).clear();
-        driver.findElement(By.name("login")).sendKeys("60004392kal");
-        driver.findElement(By.name("password")).clear();
-        driver.findElement(By.name("password")).sendKeys("hzlc3549");
-        driver.findElement(By.xpath("//span[contains(.,'Войти в систему')]")).click();
-
+        this.driver.findElement(By.name("login")).clear();
+        this.driver.findElement(By.name("login")).sendKeys("60004392kal");
+        this.driver.findElement(By.name("password")).clear();
+        this.driver.findElement(By.name("password")).sendKeys("hzlc3549");
+        this.takeSceenshot();
+        this.driver.findElement(By.xpath("//span[contains(.,'Войти в систему')]")).click();
+        this.takeSceenshot();
         try {
-            WebElement button = driver.findElement(By.xpath("//a[@href='/catalog']"));
+            WebElement button = this.driver.findElement(By.xpath("//a[@href='/catalog']"));
             button.click();
         }
         catch(StaleElementReferenceException ex)
         {
-            WebElement button = driver.findElement(By.xpath("//a[@href='/catalog']"));
+            WebElement button = this.driver.findElement(By.xpath("//a[@href='/catalog']"));
             button.click();
         }
    /* try {
@@ -74,13 +75,13 @@ public class SimpleTest {
 
 
 
-        driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-1']//input[@value=''])[1]")).click();
-        driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-1']//input[@value=''])[1]")).sendKeys("10");
-        driver.findElement(By.xpath("//div[@data-testid='add-basket-button-1']")).click();
-        driver.findElement(By.xpath("//button[@class='MuiButtonBase-root MuiIconButton-root jss4']")).click();
-        driver.findElement(By.xpath("//p[@data-testid='go-to-basket']")).click();
+        this.driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-1']//input[@value=''])[1]")).click();
+        this.driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-1']//input[@value=''])[1]")).sendKeys("10");
+        this.driver.findElement(By.xpath("//div[@data-testid='add-basket-button-1']")).click();
+        this.driver.findElement(By.xpath("//button[@class='MuiButtonBase-root MuiIconButton-root jss4']")).click();
+        this.driver.findElement(By.xpath("//p[@data-testid='go-to-basket']")).click();
 
-        driver.findElement(By.xpath("//*[@data-testid='go-checkout-btn']")).click();
+        this.driver.findElement(By.xpath("//*[@data-testid='go-checkout-btn']")).click();
         waitForElementPresent(By.xpath("//div[contains(text(),'Самовывоз ЭТМ')]"),"the PickUp is not issued",5);
         //driver.findElement(By.xpath("//div[contains(text(),'Самовывоз ЭТМ')]")).click();
     /*driver.findElement(By.xpath("//img[@src='/assets/img/logo_etm_blue.png']")).click();
@@ -90,18 +91,18 @@ public class SimpleTest {
     driver.findElement(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]")).click();
     driver.findElement(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]")).click();*/
 
-        driver.findElement(By.xpath("//div[@data-testid='option-payment-1']")).click();
-        driver.findElement(By.xpath("//span[contains(.,'Оформить заказ')]")).click();
-        driver.findElement(By.xpath("//input[@type='text']")).click();
-        driver.findElement(By.xpath("//input[@type='text']")).sendKeys("test");
-        driver.findElement(By.xpath("//button[@data-testid='closePopup']")).click();
+        this.driver.findElement(By.xpath("//div[@data-testid='option-payment-1']")).click();
+        this.driver.findElement(By.xpath("//span[contains(.,'Оформить заказ')]")).click();
+        this.driver.findElement(By.xpath("//input[@type='text']")).click();
+        this.driver.findElement(By.xpath("//input[@type='text']")).sendKeys("test");
+        this.driver.findElement(By.xpath("//button[@data-testid='closePopup']")).click();
         waitForElementPresent(By.xpath("//p[contains(.,'Благодарим вас за использование системы iPRO!')]"),"the order is not issued",5);
-        driver.findElement(By.xpath("//span[contains(.,'Перейти в Документы')]")).click();
+        this.driver.findElement(By.xpath("//span[contains(.,'Перейти в Документы')]")).click();
 
-        driver.findElement(By.xpath("//button[@title='Выход']")).click();
+        this.driver.findElement(By.xpath("//button[@title='Выход']")).click();
     }
     private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds) {
-        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+        WebDriverWait wait = new WebDriverWait(this.driver, timeoutInSeconds);
         wait.withMessage(error_message + "\n");
 
         return wait.until(
@@ -155,7 +156,7 @@ public class SimpleTest {
       );
     }*/
     public void clickVisible(By by ,String error_message, long timeoutInSeconds ){
-        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+        WebDriverWait wait = new WebDriverWait(this.driver, timeoutInSeconds);
         wait.until(ExpectedConditions.elementToBeClickable(by));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         final Actions actions = new Actions(driver);
