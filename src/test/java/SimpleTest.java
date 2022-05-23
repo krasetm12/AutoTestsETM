@@ -57,7 +57,7 @@ public class SimpleTest {
         this.takeSceenshot();
         this.driver.findElement(By.xpath("//span[contains(.,'Войти в систему')]")).click();
         this.takeSceenshot();
-        try {
+        /*try {
             WebElement button = this.driver.findElement(By.xpath("//a[@href='/catalog']"));
             button.click();
         }
@@ -65,16 +65,18 @@ public class SimpleTest {
         {
             WebElement button = this.driver.findElement(By.xpath("//a[@href='/catalog']"));
             button.click();
-        }
-   /* try {
-      WebElement button = driver.findElement(By.xpath("//a[@data-testid='top-menu-catalog']"));
+        }*/
+    try {
+      WebElement button = this.driver.findElement(By.xpath("//a[@data-testid='top-menu-catalog']"));
       button.click();
     }
     catch(org.openqa.selenium.StaleElementReferenceException ex)
     {
-      WebElement button = driver.findElement(By.xpath("//a[@data-testid='top-menu-catalog']"));
+      WebElement button = this.driver.findElement(By.xpath("//a[@data-testid='top-menu-catalog']"));
       button.click();
-    }*/
+    }
+        this.takeSceenshot();
+
 
 
 
