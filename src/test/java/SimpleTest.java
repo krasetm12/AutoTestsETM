@@ -1,8 +1,5 @@
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -27,20 +24,29 @@ public class SimpleTest {
                 new ChromeOptions()
         );
     }
+    @AfterTest
+    public void closeSeleniumSession() {
+        this.driver.close();
+        this.driver.quit();
+    }
     
-    @Test
+    /*@Test
     public void simpleTest() throws Exception {
         this.driver.get(SITE_URL);
         this.takeSceenshot();
-    }
+    }*/
     @Test
 
 
-    public void test13MakingAnOrderByPickUpByWriteScore(){
-        driver.get(SITE_URL);
+    public void test13MakingAnOrderByPickUpByWriteScore() throws Exception{
+        this.driver.get(SITE_URL);
+        this.takeSceenshot();
         driver.findElement(By.xpath("//span[contains(.,'Все понятно')]")).click();
+        this.takeSceenshot();
         driver.findElement(By.xpath("//span[contains(.,'Все верно')]")).click();
+        this.takeSceenshot();
         driver.findElement(By.xpath("//span[contains(.,'Вход / Регистрация')]")).click();
+        this.takeSceenshot();
         driver.findElement(By.name("login")).clear();
         driver.findElement(By.name("login")).sendKeys("60004392kal");
         driver.findElement(By.name("password")).clear();
@@ -51,7 +57,7 @@ public class SimpleTest {
             WebElement button = driver.findElement(By.xpath("//a[@href='/catalog']"));
             button.click();
         }
-        catch(org.openqa.selenium.StaleElementReferenceException ex)
+        catch(StaleElementReferenceException ex)
         {
             WebElement button = driver.findElement(By.xpath("//a[@href='/catalog']"));
             button.click();
@@ -164,9 +170,5 @@ public class SimpleTest {
 
     }
 
-    @AfterTest
-    public void closeSeleniumSession() {
-        this.driver.close();
-        this.driver.quit();
-    }
+
 }
