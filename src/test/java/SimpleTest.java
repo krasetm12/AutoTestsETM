@@ -5,6 +5,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -71,7 +72,7 @@ public class SimpleTest {
       WebElement button = this.driver.findElement(By.xpath("//a[@data-testid='top-menu-catalog']"));
       button.click();
     }
-    catch(org.openqa.selenium.StaleElementReferenceException ex)
+    catch(StaleElementReferenceException ex)
     {
       WebElement button = this.driver.findElement(By.xpath("//a[@data-testid='top-menu-catalog']"));
       button.click();
@@ -88,6 +89,20 @@ public class SimpleTest {
         waitForElementPresent(By.xpath("//button[@class='MuiButtonBase-root MuiIconButton-root jss4']"),"товар добавлен не появилась",5);
         this.driver.findElement(By.xpath("//button[@class='MuiButtonBase-root MuiIconButton-root jss4']")).click();
         this.driver.findElement(By.xpath("//p[@data-testid='go-to-basket']")).click();
+        this.driver.findElement(By.name("promocode")).click();
+
+        this.driver.findElement(By.name("promocode")).sendKeys("TEST");
+
+        this.driver.findElement(By.xpath("//div[@data-testid='save-promo']")).click();
+
+        waitForElementPresent(By.xpath("//div[contains(.,'Купон успешно добавлен')]"),"купон не добавился в корзину",5);
+        Assert.assertEquals(this.driver.findElement(By.xpath("//div[contains(.,'Купон успешно добавлен')]")).getText(),"Купон успешно добавлен" );
+
+        this.driver.findElement(By.xpath("//button[@data-testid='message-close-button']")).click();
+        this.driver.findElement(By.linkText("Купон")).click();
+
+
+        // assertThat(driver.findElement(By.linkText("Купон")).getText(), is("Купон"));
 
         this.driver.findElement(By.xpath("//*[@data-testid='go-checkout-btn']")).click();
         waitForElementPresent(By.xpath("//div[contains(text(),'Самовывоз ЭТМ')]"),"the PickUp is not issued",5);
@@ -109,6 +124,8 @@ public class SimpleTest {
 
         this.driver.findElement(By.xpath("//button[@title='Выход']")).click();
     }
+
+
     @Test
 
 
