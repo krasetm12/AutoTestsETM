@@ -148,9 +148,9 @@ public class SimpleTest {
 
 
 
-        driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-1']//input[@value=''])[1]")).click();
-        driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-1']//input[@value=''])[1]")).sendKeys("10");
-        driver.findElement(By.xpath("//div[@data-testid='catalog-item-product-1']//span[@class='MuiButton-label']")).click();
+        driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-2']//input[@value=''])[1]")).click();
+        driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-2']//input[@value=''])[1]")).sendKeys("10");
+        driver.findElement(By.xpath("//div[@data-testid='catalog-item-product-2']//span[@class='MuiButton-label']")).click();
         driver.findElement(By.xpath("//button[@class='MuiButtonBase-root MuiIconButton-root jss4']")).click();
         driver.findElement(By.xpath("//p[@data-testid='go-to-basket']")).click();
 
