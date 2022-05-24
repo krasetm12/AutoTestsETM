@@ -112,7 +112,7 @@ public class SimpleTest {
     public void test12MakingAnOrderByCDEKPayUponReceipt() throws Exception{
         this.driver.get(SITE_URL);
         this.takeSceenshot();
-        clickVisible(By.xpath("//button[@data-testid='understand-button']"),"все понятно появилось", 5);
+        waitForElementPresent(By.xpath("//button[@data-testid='understand-button']"),"все понятно появилось", 10);
         this.driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
         this.takeSceenshot();
         this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
