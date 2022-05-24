@@ -89,9 +89,12 @@ public class SimpleTest {
         waitForElementPresent(By.xpath("//button[@class='MuiButtonBase-root MuiIconButton-root jss4']"),"товар добавлен не появилась",5);
         this.driver.findElement(By.xpath("//button[@class='MuiButtonBase-root MuiIconButton-root jss4']")).click();
         this.driver.findElement(By.xpath("//p[@data-testid='go-to-basket']")).click();
-        this.driver.findElement(By.name("promocode")).click();
+        this.takeSceenshot();
+        waitForElementPresent(By.xpath("//input[@name='promocode']"),"поле ввода промокода нет",5);
+        this.driver.findElement(By.xpath("//input[@name='promocode']")).click();
 
-        this.driver.findElement(By.name("promocode")).sendKeys("TEST");
+        this.takeSceenshot();
+        this.driver.findElement(By.xpath("//input[@name='promocode']")).sendKeys("TEST");
 
         this.driver.findElement(By.xpath("//div[@data-testid='save-promo']")).click();
 
