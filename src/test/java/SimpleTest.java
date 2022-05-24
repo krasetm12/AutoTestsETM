@@ -162,8 +162,9 @@ public class SimpleTest {
         waitForElementPresent(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]"),"the delivery point is not issued",5);
         driver.findElement(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]")).click();
         driver.findElement(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]")).click();
+        waitForElementPresent(By.xpath("//div[@data-testid='option-payment-5']"),"при получении не отображается",5);
+        driver.findElement(By.xpath("//div[@data-testid='option-payment-5']")).click();
 
-        driver.findElement(By.xpath("//div[contains(text(),'При получении')]")).click();
         driver.findElement(By.xpath("//span[contains(.,'Оформить заказ')]")).click();
         waitForElementPresent(By.xpath("//p[contains(.,'Благодарим вас за использование системы iPRO!')]"),"the order is not issued",5);
         driver.findElement(By.xpath("//span[contains(.,'Перейти в Заказы')]")).click();
