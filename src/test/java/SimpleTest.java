@@ -83,9 +83,9 @@ public class SimpleTest {
 
 
 
-        this.driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-4']//input[@value=''])[1]")).click();
-        this.driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-4']//input[@value=''])[1]")).sendKeys("10");
-        this.driver.findElement(By.xpath("//div[@data-testid='add-basket-button-4']")).click();
+        this.driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-5']//input[@value=''])[1]")).click();
+        this.driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-5']//input[@value=''])[1]")).sendKeys("10");
+        this.driver.findElement(By.xpath("//div[@data-testid='add-basket-button-5']")).click();
         this.takeSceenshot();
         waitForElementPresent(By.xpath("//button[@class='MuiButtonBase-root MuiIconButton-root jss4']"),"товар добавлен не появилась",5);
         this.driver.findElement(By.xpath("//button[@class='MuiButtonBase-root MuiIconButton-root jss4']")).click();
