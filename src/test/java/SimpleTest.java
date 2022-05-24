@@ -38,12 +38,13 @@ public class SimpleTest {
         this.driver.get(SITE_URL);
         this.takeSceenshot();
     }*/
-   /* @Test
+    @Test
 
 
     public void test13MakingAnOrderByPickUpByWriteScore() throws Exception{
         this.driver.get(SITE_URL);
         this.takeSceenshot();
+        waitForElementPresent(By.xpath("//button[@data-testid='understand-button']"),"все понятно появилось", 10);
         this.driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
         this.takeSceenshot();
         this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
@@ -57,7 +58,7 @@ public class SimpleTest {
         this.takeSceenshot();
         this.driver.findElement(By.xpath("//span[contains(.,'Войти в систему')]")).click();
         this.takeSceenshot();
-        *//*try {
+       /* try {
             WebElement button = this.driver.findElement(By.xpath("//a[@href='/catalog']"));
             button.click();
         }
@@ -65,7 +66,7 @@ public class SimpleTest {
         {
             WebElement button = this.driver.findElement(By.xpath("//a[@href='/catalog']"));
             button.click();
-        }*//*
+        }*/
     try {
       WebElement button = this.driver.findElement(By.xpath("//a[@data-testid='top-menu-catalog']"));
       button.click();
@@ -88,24 +89,24 @@ public class SimpleTest {
 
         this.driver.findElement(By.xpath("//*[@data-testid='go-checkout-btn']")).click();
         waitForElementPresent(By.xpath("//div[contains(text(),'Самовывоз ЭТМ')]"),"the PickUp is not issued",5);
-        //driver.findElement(By.xpath("//div[contains(text(),'Самовывоз ЭТМ')]")).click();
-    *//*driver.findElement(By.xpath("//img[@src='/assets/img/logo_etm_blue.png']")).click();
+        driver.findElement(By.xpath("//div[contains(text(),'Самовывоз ЭТМ')]")).click();
+   /* driver.findElement(By.xpath("//img[@src='/assets/img/logo_etm_blue.png']")).click();
     driver.findElement(By.xpath("//img[@src='/assets/img/logo_etm_blue.png']")).click();
     clickVisible(By.xpath("//div[contains(.,'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]") ,"not click delivery point", 5 );
     waitForElementPresent(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]"),"the delivery point is not issued",5);
     driver.findElement(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]")).click();
-    driver.findElement(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]")).click();*//*
-
+    driver.findElement(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]")).click();*/
+        waitForElementPresent(By.xpath("//div[@data-testid='option-payment-1']"),"выписать счет не отображается",5);
         this.driver.findElement(By.xpath("//div[@data-testid='option-payment-1']")).click();
         this.driver.findElement(By.xpath("//span[contains(.,'Оформить заказ')]")).click();
-        this.driver.findElement(By.xpath("//input[@type='text']")).click();
-        this.driver.findElement(By.xpath("//input[@type='text']")).sendKeys("test");
-        this.driver.findElement(By.xpath("//button[@data-testid='closePopup']")).click();
+       /* this.driver.findElement(By.xpath("//input[@type='text']")).click();
+        this.driver.findElement(By.xpath("//input[@type='text']")).sendKeys("test");*/
+        waitForElementAndClick(By.xpath("//button[@data-testid='closePopup']"),"modal window is open", 5);
         waitForElementPresent(By.xpath("//p[contains(.,'Благодарим вас за использование системы iPRO!')]"),"the order is not issued",5);
         this.driver.findElement(By.xpath("//span[contains(.,'Перейти в Документы')]")).click();
 
         this.driver.findElement(By.xpath("//button[@title='Выход']")).click();
-    }*/
+    }
     @Test
 
 
@@ -179,14 +180,14 @@ public class SimpleTest {
                 ExpectedConditions.presenceOfElementLocated(by)
         );
     }
-    /*private WebElement waitForElementAndClick(By by, String error_message, long timeoutInSeconds) {
+    private WebElement waitForElementAndClick(By by, String error_message, long timeoutInSeconds) {
       WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
       element.click();
 
       return element;
 
     }
-    private WebElement waitForElementAndClickable(By by, String error_message, long timeoutInSeconds){
+    /*private WebElement waitForElementAndClickable(By by, String error_message, long timeoutInSeconds){
       WebDriverWait wait=new WebDriverWait(driver, 10);
       wait.withMessage(error_message + "\n");
       return wait.until
