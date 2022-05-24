@@ -44,11 +44,11 @@ public class SimpleTest {
     public void test13MakingAnOrderByPickUpByWriteScore() throws Exception{
         this.driver.get(SITE_URL);
         this.takeSceenshot();
-        waitForElementPresent(By.xpath("//button[@data-testid='understand-button']"),"все понятно появилось", 10);
+        /*waitForElementPresent(By.xpath("//button[@data-testid='understand-button']"),"все понятно появилось", 10);
         this.driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
         this.takeSceenshot();
         this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
-        this.takeSceenshot();
+        this.takeSceenshot();*/
         this.driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
         this.takeSceenshot();
         this.driver.findElement(By.name("login")).clear();
