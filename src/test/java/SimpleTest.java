@@ -95,7 +95,7 @@ public class SimpleTest {
         this.driver.findElement(By.xpath("//input[@name='promocode']")).click();
 
         this.takeSceenshot();
-        this.driver.findElement(By.xpath("//input[@name='promocode']")).sendKeys("TEST");
+        this.driver.findElement(By.xpath("//input[@name='promocode']")).sendKeys("ЮРИК");
 
         this.driver.findElement(By.xpath("//div[@data-testid='save-promo']")).click();
 
