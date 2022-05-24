@@ -99,8 +99,8 @@ public class SimpleTest {
 
         this.driver.findElement(By.xpath("//div[@data-testid='save-promo']")).click();
 
-        waitForElementPresent(By.xpath("//div[contains(.,'Купон успешно добавлен')]"),"купон не добавился в корзину",5);
-        Assert.assertEquals(this.driver.findElement(By.xpath("//div[contains(.,'Купон успешно добавлен')]")).getText(),"Купон успешно добавлен" );
+        waitForElementPresent(By.xpath("//div[@id='notistack-snackbar']"),"купон не добавился в корзину",5);
+        Assert.assertEquals(this.driver.findElement(By.xpath("//div[@id='notistack-snackbar']//div[contains(.,'Купон успешно добавлен')]")).getText(),"Купон успешно добавлен" );
 
         this.driver.findElement(By.xpath("//button[@data-testid='message-close-button']")).click();
         this.driver.findElement(By.linkText("Купон")).click();
