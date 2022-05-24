@@ -50,6 +50,7 @@ public class SimpleTest {
         this.takeSceenshot();
         this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
         this.takeSceenshot();*/
+        waitForElementPresent(By.xpath("//button[@data-testid='authorization-button']"),"кнопка войти появилась", 10);
         this.driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
         this.takeSceenshot();
         this.driver.findElement(By.name("login")).clear();
@@ -140,6 +141,7 @@ public class SimpleTest {
         this.takeSceenshot();
         this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
         this.takeSceenshot();
+        waitForElementPresent(By.xpath("//button[@data-testid='authorization-button']"),"кнопка войти появилась", 10);
         this.driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
         this.takeSceenshot();
         driver.findElement(By.name("login")).clear();
