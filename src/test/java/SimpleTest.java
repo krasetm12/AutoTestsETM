@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SimpleTest {
     public RemoteWebDriver driver;
-    private static final String SELENIUM_URL = "https://autotest.etm.corp:4444/wd/hub";
+    private static final String SELENIUM_URL = "http://autotest.etm.corp:4444/wd/hub";
     String SITE_URL="https://idev.etm.ru/ipro3";
 
     @BeforeTest
