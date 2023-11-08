@@ -16,8 +16,18 @@ import java.util.concurrent.TimeUnit;
 
 public class SimpleTest {
     public RemoteWebDriver driver;
-    private static final String SELENIUM_URL = "http://autotest.etm.corp:4444/wd/hub"; //http://localhost:4444/wd/hub"
+
+      //http://localhost:4444/wd/hub"
+
+    private static final
+    String SELENIUM_URL = "http://autotest.etm.corp:4444/wd/hub";
+    String ITEST_HOME_PAGE= "https://itest.etm.ru:3004";
     String SITE_URL="https://idev.etm.ru/ipro3";
+    String LOGIN_MARKET="9216572712";
+    String PASSWORD_MARKET="qakras123";
+    String LOGIN_IPRO="60004392kal";
+    String PASSWORD_IPRO="qakras123";
+
 
     @BeforeTest
     public void start() throws Exception {
@@ -43,91 +53,16 @@ public class SimpleTest {
 
 
     public void test13MakingAnOrderByPickUpByWriteScore() throws Exception{
-        this.driver.get(SITE_URL);
+        this.driver.get(ITEST_HOME_PAGE);
         this.takeSceenshot();
-        /*waitForElementPresent(By.xpath("//button[@data-testid='understand-button']"),"все понятно появилось", 10);
-        this.driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
-        this.takeSceenshot();
-        this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
-        this.takeSceenshot();
-        waitForElementPresent(By.xpath("//button[@data-testid='authorization-button']"),"кнопка войти появилась", 10);
-        this.driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
-        this.takeSceenshot();
-        this.driver.findElement(By.name("login")).clear();
-        this.driver.findElement(By.name("login")).sendKeys("60004392kal");
-        this.driver.findElement(By.name("password")).clear();
-        this.driver.findElement(By.name("password")).sendKeys("hzlc3549");
-        this.takeSceenshot();
-        this.driver.findElement(By.xpath("//span[contains(.,'Войти в систему')]")).click();
-        this.takeSceenshot();
-       /* try {
-            WebElement button = this.driver.findElement(By.xpath("//a[@href='/catalog']"));
-            button.click();
-        }
-        catch(StaleElementReferenceException ex)
-        {
-            WebElement button = this.driver.findElement(By.xpath("//a[@href='/catalog']"));
-            button.click();
-        }
-    try {
-      WebElement button = this.driver.findElement(By.xpath("//a[@data-testid='top-menu-catalog']"));
-      button.click();
-    }
-    catch(StaleElementReferenceException ex)
-    {
-      WebElement button = this.driver.findElement(By.xpath("//a[@data-testid='top-menu-catalog']"));
-      button.click();
-    }
-        this.takeSceenshot();
-
-
-
-
-        this.driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-5']//input[@value=''])[1]")).click();
-        this.driver.findElement(By.xpath("(//div[@data-testid='catalog-item-product-5']//input[@value=''])[1]")).sendKeys("10");
-        this.driver.findElement(By.xpath("//div[@data-testid='add-basket-button-5']")).click();
-        this.takeSceenshot();
-        waitForElementPresent(By.xpath("//button[@class='MuiButtonBase-root MuiIconButton-root jss4']"),"товар добавлен не появилась",5);
-        this.driver.findElement(By.xpath("//button[@class='MuiButtonBase-root MuiIconButton-root jss4']")).click();
-        this.driver.findElement(By.xpath("//p[@data-testid='go-to-basket']")).click();
-        this.takeSceenshot();
-        waitForElementPresent(By.xpath("//input[@name='promocode']"),"поле ввода промокода нет",5);
-        this.driver.findElement(By.xpath("//input[@name='promocode']")).click();
-
-        this.takeSceenshot();
-        this.driver.findElement(By.xpath("//input[@name='promocode']")).sendKeys("ЮРИК");
-
-        this.driver.findElement(By.xpath("//div[@data-testid='save-promo']")).click();
-
-        waitForElementPresent(By.xpath("//div[@id='notistack-snackbar']"),"купон не добавился в корзину",5);
-        Assert.assertEquals(this.driver.findElement(By.xpath("//div[@id='notistack-snackbar']//div[contains(.,'Купон успешно добавлен')]")).getText(),"Купон успешно добавлен" );
-
-        this.driver.findElement(By.xpath("//button[@data-testid='message-close-button']")).click();
-        this.driver.findElement(By.linkText("Купон")).click();
-
-
-        // assertThat(driver.findElement(By.linkText("Купон")).getText(), is("Купон"));
-
-        this.driver.findElement(By.xpath("//*[@data-testid='go-checkout-btn']")).click();
-        waitForElementPresent(By.xpath("//div[contains(text(),'Самовывоз ЭТМ')]"),"the PickUp is not issued",5);
-        driver.findElement(By.xpath("//div[contains(text(),'Самовывоз ЭТМ')]")).click();
-   /* driver.findElement(By.xpath("//img[@src='/assets/img/logo_etm_blue.png']")).click();
-    driver.findElement(By.xpath("//img[@src='/assets/img/logo_etm_blue.png']")).click();
-    clickVisible(By.xpath("//div[contains(.,'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]") ,"not click delivery point", 5 );
-    waitForElementPresent(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]"),"the delivery point is not issued",5);
-    driver.findElement(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]")).click();
-    driver.findElement(By.xpath("//div[contains(text(),'пос. Шушары, Ленсоветовская дорога, д.12, корп.2, лит.Б')]")).click();
-        waitForElementPresent(By.xpath("//div[@data-testid='option-payment-1']"),"выписать счет не отображается",5);
-        this.driver.findElement(By.xpath("//div[@data-testid='option-payment-1']")).click();
-        this.driver.findElement(By.xpath("//span[contains(.,'Оформить заказ')]")).click();
-       /* this.driver.findElement(By.xpath("//input[@type='text']")).click();
-        this.driver.findElement(By.xpath("//input[@type='text']")).sendKeys("test");
-        waitForElementAndClick(By.xpath("//button[@data-testid='closePopup']"),"modal window is open", 5);
-        waitForElementPresent(By.xpath("//p[contains(.,'Благодарим вас за использование системы iPRO!')]"),"the order is not issued",5);
-        this.driver.findElement(By.xpath("//span[contains(.,'Перейти в Документы')]")).click();
-
-        this.driver.findElement(By.xpath("//button[@title='Выход']")).click();
-        */
+      driver.findElement(By.xpath("//span[contains(.,'Все понятно')]")).click();
+      driver.findElement(By.xpath("//span[contains(.,'Все верно')]")).click();
+      driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
+      driver.findElement(By.name("login")).clear();
+      driver.findElement(By.name("login")).sendKeys(LOGIN_MARKET);
+      driver.findElement(By.name("password")).clear();
+      driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
+      driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
     }
 
 
