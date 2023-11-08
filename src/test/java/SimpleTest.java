@@ -63,6 +63,7 @@ public class SimpleTest {
       driver.findElement(By.name("password")).clear();
       driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
       driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
+      this.takeSceenshot();
     }
 
 
