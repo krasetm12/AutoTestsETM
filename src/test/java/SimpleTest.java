@@ -77,7 +77,7 @@ public class SimpleTest {
       this.takeSceenshot();
 
        */
-      Cookie cookieSession=this.driver.manage().getCookieNamed("session-id");
+
 
       //driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
       //driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
@@ -101,7 +101,12 @@ public class SimpleTest {
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
         driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
-        System.out.println(cookieSession);
+      //Cookie cookieSession=this.driver.manage().getCookieNamed("session-id");
+      Set<Cookie> cookieSession = (Set<Cookie>) driver.manage().getCookieNamed("session-id");
+      for(Cookie getCookieNamed :cookieSession) {
+        System.out.println(getCookieNamed );
+      }
+      System.out.println(cookieSession);
 
       try {
         WebElement button = driver.findElement(By.xpath("//a[@data-testid='top-menu-estimates']"));
@@ -132,6 +137,10 @@ public class SimpleTest {
     public void test12MakingAnOrderByCDEKPayUponReceipt() throws Exception{
         this.driver.get(ITEST_HOME_PAGE);
       System.out.println("начало первого теста" );
+      Set<Cookie> cookiesListNew =  driver.manage().getCookies();
+      for(Cookie getcookies :cookiesListNew) {
+        System.out.println(getcookies );
+      }
 
 
       Cookie cookieSession=this.driver.manage().getCookieNamed("session-id");
@@ -160,11 +169,13 @@ public class SimpleTest {
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
         driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
-      Set<Cookie> cookiesListNew =  driver.manage().getCookies();
-      for(Cookie getcookies :cookiesListNew) {
-        System.out.println(getcookies );
+      Set<Cookie> cookieSessionm = (Set<Cookie>) driver.manage().getCookieNamed("session-id");
+      for(Cookie getCookieNamed :cookieSessionm) {
+        System.out.println(getCookieNamed );
       }
-        System.out.println(cookieSession);
+      System.out.println(cookieSessionm);
+
+
         driver.findElement(By.xpath("//button[@id='composition-button']")).click();
         driver.findElement(By.xpath("//li[@data-testid='drop-menu-item-exit']")).click();
       System.out.println("конец первого теста" );
