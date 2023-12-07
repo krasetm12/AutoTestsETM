@@ -56,6 +56,10 @@ public class SimpleTest {
     public void test13MakingAnOrderByPickUpByWriteScore() throws Exception {
       this.driver.get(ITEST_HOME_PAGE);
       System.out.println("начало второго теста" );
+      Set<Cookie> cookiesListNew =  driver.manage().getCookies();
+      for(Cookie getcookies :cookiesListNew) {
+        System.out.println(getcookies );
+      }
       /*this.takeSceenshot();
       Cookie cookiesession=driver.manage().getCookieNamed("session-id");
       if(cookiesession==null){
@@ -102,11 +106,7 @@ public class SimpleTest {
         driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
         driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
       //Cookie cookieSession=this.driver.manage().getCookieNamed("session-id");
-      Set<Cookie> cookieSession = (Set<Cookie>) driver.manage().getCookieNamed("session-id");
-      for(Cookie getCookieNamed :cookieSession) {
-        System.out.println(getCookieNamed );
-      }
-      System.out.println(cookieSession);
+
 
       try {
         WebElement button = driver.findElement(By.xpath("//a[@data-testid='top-menu-estimates']"));
@@ -117,6 +117,10 @@ public class SimpleTest {
       }
       driver.findElement(By.xpath("//button[@id='composition-button']")).click();
       driver.findElement(By.xpath("//li[@data-testid='drop-menu-item-exit']")).click();
+      Set<Cookie> cookiesListNewm =  driver.manage().getCookies();
+      for(Cookie getcookies :cookiesListNewm) {
+        System.out.println(getcookies );
+      }
       System.out.println("конец второго теста" );
 
       /*MainPageObject.waitForElementAndSendKeys("//input[@name='nameEst']", "999/0817524", "not found the data entry element ", 5);
@@ -169,15 +173,15 @@ public class SimpleTest {
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
         driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
-      Set<Cookie> cookieSessionm = (Set<Cookie>) driver.manage().getCookieNamed("session-id");
-      for(Cookie getCookieNamed :cookieSessionm) {
-        System.out.println(getCookieNamed );
-      }
-      System.out.println(cookieSessionm);
+
 
 
         driver.findElement(By.xpath("//button[@id='composition-button']")).click();
         driver.findElement(By.xpath("//li[@data-testid='drop-menu-item-exit']")).click();
+      Set<Cookie> cookiesListNewm =  driver.manage().getCookies();
+      for(Cookie getcookies :cookiesListNewm) {
+        System.out.println(getcookies );
+      }
       System.out.println("конец первого теста" );
 
 
