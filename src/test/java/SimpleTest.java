@@ -55,6 +55,7 @@ public class SimpleTest {
 
     public void test13MakingAnOrderByPickUpByWriteScore() throws Exception {
       this.driver.get(ITEST_HOME_PAGE);
+      System.out.println("начало второго теста" );
       /*this.takeSceenshot();
       Cookie cookiesession=driver.manage().getCookieNamed("session-id");
       if(cookiesession==null){
@@ -111,6 +112,8 @@ public class SimpleTest {
       }
       driver.findElement(By.xpath("//button[@id='composition-button']")).click();
       driver.findElement(By.xpath("//li[@data-testid='drop-menu-item-exit']")).click();
+      System.out.println("конец второго теста" );
+
       /*MainPageObject.waitForElementAndSendKeys("//input[@name='nameEst']", "999/0817524", "not found the data entry element ", 5);
       MainPageObject.waitForElementAndClick("//button[@data-testid='search-button']", "not found and click element of search", 5);
 
@@ -128,7 +131,8 @@ public class SimpleTest {
 
     public void test12MakingAnOrderByCDEKPayUponReceipt() throws Exception{
         this.driver.get(ITEST_HOME_PAGE);
-        this.takeSceenshot();
+      System.out.println("начало первого теста" );
+
 
       Cookie cookieSession=this.driver.manage().getCookieNamed("session-id");
 
@@ -138,12 +142,13 @@ public class SimpleTest {
         if(this.driver.findElementsByXPath("//button[@data-testid='understand-button']").size() >0){
           waitForElementPresent(By.xpath("//button[@data-testid='understand-button']"),"все понятно не появилось", 10);
           this.driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
+          this.takeSceenshot();
         }
         else if(this.driver.findElementsByXPath("//button[@data-testid='okay-button']").size() >0) {
 
           this.takeSceenshot();
           this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
-          this.takeSceenshot();
+
         }
       //if(cookieSession==null) {
 
@@ -162,6 +167,7 @@ public class SimpleTest {
         System.out.println(cookieSession);
         driver.findElement(By.xpath("//button[@id='composition-button']")).click();
         driver.findElement(By.xpath("//li[@data-testid='drop-menu-item-exit']")).click();
+      System.out.println("конец первого теста" );
 
 
         /*try {
