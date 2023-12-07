@@ -53,51 +53,27 @@ public class SimpleTest {
     @Test
 
 
-    public void test13MakingAnOrderByPickUpByWriteScore() throws Exception {
+    public void testMakingAnOrderByPickUpByWriteScore() throws Exception {
       this.driver.get(ITEST_HOME_PAGE);
       System.out.println("начало второго теста" );
       Set<Cookie> cookiesListNew =  driver.manage().getCookies();
       for(Cookie getcookies :cookiesListNew) {
         System.out.println(getcookies );
       }
-      /*this.takeSceenshot();
-      Cookie cookiesession=driver.manage().getCookieNamed("session-id");
-      if(cookiesession==null){
-      //driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
-      //driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
-        waitForElementPresent(By.xpath("//button[@data-testid='understand-button']"),"все понятно не появилось", 10);
-        this.driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
-        this.takeSceenshot();
-        this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
-        this.takeSceenshot();
-      }
-      else
-      driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
-      driver.findElement(By.name("login")).clear();
-      driver.findElement(By.name("login")).sendKeys(LOGIN_MARKET);
-      driver.findElement(By.name("password")).clear();
-      driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
-      driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
-      this.takeSceenshot();
 
-       */
-
-
-      //driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
-      //driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
 
       if(this.driver.findElementsByXPath("//button[@data-testid='understand-button']").size() >0){
         waitForElementPresent(By.xpath("//button[@data-testid='understand-button']"),"все понятно не появилось", 10);
         this.driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
-        System.out.println("все понятно" );
+        //System.out.println("все понятно" );
       }
       else if(this.driver.findElementsByXPath("//button[@data-testid='okay-button']").size() >0) {
 
-        System.out.println("все верно" );
+        //System.out.println("все верно" );
         this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
         this.takeSceenshot();
       }
-      //if(cookieSession==null) {
+
         waitForElementPresent(By.xpath("//button[@data-testid='authorization-button']"), "кнопка войти не появилась", 10);
         this.driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
         this.takeSceenshot();
@@ -106,7 +82,7 @@ public class SimpleTest {
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
         driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
-      //Cookie cookieSession=this.driver.manage().getCookieNamed("session-id");
+
 
 
       try {
@@ -118,10 +94,6 @@ public class SimpleTest {
       }
       driver.findElement(By.xpath("//button[@id='composition-button']")).click();
       driver.findElement(By.xpath("//li[@data-testid='drop-menu-item-exit']")).click();
-      Set<Cookie> cookiesListNewm =  driver.manage().getCookies();
-      for(Cookie getcookies :cookiesListNewm) {
-        System.out.println(getcookies );
-      }
       System.out.println("конец второго теста" );
 
       /*MainPageObject.waitForElementAndSendKeys("//input[@name='nameEst']", "999/0817524", "not found the data entry element ", 5);
@@ -139,34 +111,22 @@ public class SimpleTest {
     @Test
 
 
-    public void test12MakingAnOrderByCDEKPayUponReceipt() throws Exception{
+    public void testMakingAnOrderByCDEKPayUponReceipt() throws Exception{
         this.driver.get(ITEST_HOME_PAGE);
       System.out.println("начало первого теста" );
-      Set<Cookie> cookiesListNew =  driver.manage().getCookies();
-      for(Cookie getcookies :cookiesListNew) {
-        System.out.println(getcookies );
-      }
-
-
-
-
-        //driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
-        //driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
-
-        if(this.driver.findElementsByXPath("//button[@data-testid='understand-button']").size() >0){
+      if(this.driver.findElementsByXPath("//button[@data-testid='understand-button']").size() >0){
           waitForElementPresent(By.xpath("//button[@data-testid='understand-button']"),"все понятно не появилось", 10);
-          System.out.println("все понятно" );
+          //System.out.println("все понятно" );
           this.driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
           this.takeSceenshot();
         }
         else if(this.driver.findElementsByXPath("//button[@data-testid='okay-button']").size() >0) {
 
-          System.out.println("все верно" );
+          //System.out.println("все верно" );
           this.takeSceenshot();
           this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
 
         }
-      //if(cookieSession==null) {
 
         waitForElementPresent(By.xpath("//button[@data-testid='authorization-button']"), "кнопка войти не появилась", 10);
         this.driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
@@ -176,16 +136,12 @@ public class SimpleTest {
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
         driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
+        driver.findElement(By.xpath("//button[@id='composition-button']")).click();
+      //String sessionId = driver.getSessionId().toString();
       Set<Cookie> cookiesListNewm =  driver.manage().getCookies();
       for(Cookie getcookies :cookiesListNewm) {
         System.out.println(getcookies );
       }
-
-
-
-      driver.findElement(By.xpath("//button[@id='composition-button']")).click();
-      //String sessionId = driver.getSessionId().toString();
-
       Cookie cookieSession=this.driver.manage().getCookieNamed("session-id");
       System.out.println(cookieSession.getValue());
       driver.findElement(By.xpath("//li[@data-testid='drop-menu-item-exit']")).click();
