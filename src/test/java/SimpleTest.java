@@ -176,15 +176,14 @@ public class SimpleTest {
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
         driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
-
-
-
-        driver.findElement(By.xpath("//button[@id='composition-button']")).click();
-        driver.findElement(By.xpath("//li[@data-testid='drop-menu-item-exit']")).click();
       Set<Cookie> cookiesListNewm =  driver.manage().getCookies();
       for(Cookie getcookies :cookiesListNewm) {
         System.out.println(getcookies );
       }
+      
+      driver.findElement(By.xpath("//button[@id='composition-button']")).click();
+      driver.findElement(By.xpath("//li[@data-testid='drop-menu-item-exit']")).click();
+
       System.out.println("конец первого теста" );
 
 
