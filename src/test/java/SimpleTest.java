@@ -148,7 +148,7 @@ public class SimpleTest {
       }
 
 
-      Cookie cookieSession=this.driver.manage().getCookieNamed("session-id");
+
 
         //driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
         //driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
@@ -184,8 +184,10 @@ public class SimpleTest {
 
 
       driver.findElement(By.xpath("//button[@id='composition-button']")).click();
-      String sessionId = driver.getSessionId().toString();
-      System.out.println(sessionId);
+      //String sessionId = driver.getSessionId().toString();
+
+      Cookie cookieSession=this.driver.manage().getCookieNamed("session-id");
+      System.out.println(cookieSession.getValue());
       driver.findElement(By.xpath("//li[@data-testid='drop-menu-item-exit']")).click();
 
       System.out.println("конец первого теста" );
