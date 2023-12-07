@@ -89,10 +89,11 @@ public class SimpleTest {
       if(this.driver.findElementsByXPath("//button[@data-testid='understand-button']").size() >0){
         waitForElementPresent(By.xpath("//button[@data-testid='understand-button']"),"все понятно не появилось", 10);
         this.driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
+        System.out.println("все понятно" );
       }
       else if(this.driver.findElementsByXPath("//button[@data-testid='okay-button']").size() >0) {
 
-        this.takeSceenshot();
+        System.out.println("все верно" );
         this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
         this.takeSceenshot();
       }
@@ -154,11 +155,13 @@ public class SimpleTest {
 
         if(this.driver.findElementsByXPath("//button[@data-testid='understand-button']").size() >0){
           waitForElementPresent(By.xpath("//button[@data-testid='understand-button']"),"все понятно не появилось", 10);
+          System.out.println("все понятно" );
           this.driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
           this.takeSceenshot();
         }
         else if(this.driver.findElementsByXPath("//button[@data-testid='okay-button']").size() >0) {
 
+          System.out.println("все верно" );
           this.takeSceenshot();
           this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
 
