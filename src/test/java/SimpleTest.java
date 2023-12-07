@@ -180,8 +180,12 @@ public class SimpleTest {
       for(Cookie getcookies :cookiesListNewm) {
         System.out.println(getcookies );
       }
-      
+
+
+
       driver.findElement(By.xpath("//button[@id='composition-button']")).click();
+      String sessionId = driver.getSessionId().toString();
+      System.out.println(sessionId);
       driver.findElement(By.xpath("//li[@data-testid='drop-menu-item-exit']")).click();
 
       System.out.println("конец первого теста" );
