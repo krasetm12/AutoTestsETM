@@ -52,11 +52,11 @@ public class SimpleTest {
     @Test
 
 
-    public void test13MakingAnOrderByPickUpByWriteScore() throws Exception{
-        this.driver.get(ITEST_HOME_PAGE);
-        this.takeSceenshot();
-      driver.findElement(By.xpath("//span[contains(.,'Все понятно')]")).click();
-      driver.findElement(By.xpath("//span[contains(.,'Все верно')]")).click();
+    public void test13MakingAnOrderByPickUpByWriteScore() throws Exception {
+      this.driver.get(ITEST_HOME_PAGE);
+      this.takeSceenshot();
+      driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
+      driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
       driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
       driver.findElement(By.name("login")).clear();
       driver.findElement(By.name("login")).sendKeys(LOGIN_MARKET);
@@ -64,8 +64,24 @@ public class SimpleTest {
       driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
       driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
       this.takeSceenshot();
-    }
+      try {
+        WebElement button = driver.findElement(By.xpath("//a[@data-testid='top-menu-estimates']"));
+        button.click();
+      } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+        WebElement button = driver.findElement(By.xpath("//a[@data-testid='top-menu-estimates']"));
+        button.click();
+      }
+      /*MainPageObject.waitForElementAndSendKeys("//input[@name='nameEst']", "999/0817524", "not found the data entry element ", 5);
+      MainPageObject.waitForElementAndClick("//button[@data-testid='search-button']", "not found and click element of search", 5);
 
+      MainPageObject.waitForElementAndClickable("//span[contains(.,'999/0816925')]", "not found element add to cart", 5);
+      MainPageObject.waitForElementPresent("//tr[@data-testid='estimate-item-1']", "not found estimate", 5);
+      MainPageObject.waitForElementAndClickable("//button[@data-testid='estimate-item-1-button-cart']", "not found element add to cart", 5);
+      MainPageObject.waitForElementAndClick("//button[@data-testid='estimate-item-1-button-cart']", "not found and click element of search", 5);
+      MainPageObject.waitForElementAndClick("//button[@data-testid='message-close-button']", "not found and click element X", 5);
+      MainPageObject.waitForElementAndClick("//p[@data-testid='go-to-basket']", "not found and click element of go to basket", 5);
+    */
+    }
 
     @Test
 
