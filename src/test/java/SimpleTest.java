@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 import java.net.URL;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class SimpleTest {
@@ -99,6 +100,7 @@ public class SimpleTest {
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
         driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
+        System.out.println(cookieSession);
 
       try {
         WebElement button = driver.findElement(By.xpath("//a[@data-testid='top-menu-estimates']"));
@@ -144,7 +146,7 @@ public class SimpleTest {
           this.takeSceenshot();
         }
       //if(cookieSession==null) {
-        System.out.println(cookieSession);
+
         waitForElementPresent(By.xpath("//button[@data-testid='authorization-button']"), "кнопка войти не появилась", 10);
         this.driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
         this.takeSceenshot();
@@ -153,7 +155,11 @@ public class SimpleTest {
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
         driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
-
+      Set<Cookie> cookiesListNew =  driver.manage().getCookies();
+      for(Cookie getcookies :cookiesListNew) {
+        System.out.println(getcookies );
+      }
+        System.out.println(cookieSession);
         driver.findElement(By.xpath("//button[@id='composition-button']")).click();
         driver.findElement(By.xpath("//li[@data-testid='drop-menu-item-exit']")).click();
 
