@@ -90,7 +90,7 @@ public class SimpleTest {
         this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
         this.takeSceenshot();
       }
-      if(cookieSession==null) {
+      //if(cookieSession==null) {
         waitForElementPresent(By.xpath("//button[@data-testid='authorization-button']"), "кнопка войти не появилась", 10);
         this.driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
         this.takeSceenshot();
@@ -99,7 +99,7 @@ public class SimpleTest {
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
         driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
-      }
+
       try {
         WebElement button = driver.findElement(By.xpath("//a[@data-testid='top-menu-estimates']"));
         button.click();
@@ -143,7 +143,8 @@ public class SimpleTest {
           this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
           this.takeSceenshot();
         }
-      if(cookieSession==null) {
+      //if(cookieSession==null) {
+        System.out.println(cookieSession);
         waitForElementPresent(By.xpath("//button[@data-testid='authorization-button']"), "кнопка войти не появилась", 10);
         this.driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
         this.takeSceenshot();
@@ -152,7 +153,7 @@ public class SimpleTest {
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
         driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
-       }
+
         driver.findElement(By.xpath("//button[@id='composition-button']")).click();
         driver.findElement(By.xpath("//li[@data-testid='drop-menu-item-exit']")).click();
 
