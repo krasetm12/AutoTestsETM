@@ -25,7 +25,7 @@ public class SimpleTest {
     String ITEST_HOME_PAGE= "https://itest.etm.ru:3004";
     String SITE_URL="https://idev.etm.ru/ipro3";
     String LOGIN_MARKET="9216572712";
-    String PASSWORD_MARKET="qakras123";
+    String PASSWORD_MARKET="qakras1234";
     String LOGIN_IPRO="60004392kal";
     String PASSWORD_IPRO="qakras123";
 
