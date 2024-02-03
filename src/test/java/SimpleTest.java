@@ -57,6 +57,10 @@ public class SimpleTest {
     public void testMakingAnOrderByPickUpByWriteScore() throws Exception {
       this.driver.get(ITEST_HOME_PAGE);
       System.out.println("начало второго теста" );
+      Set<Cookie> allCookies = driver.manage().getCookies();
+      for (Cookie cookie : allCookies) {
+        driver.manage().deleteCookieNamed(cookie.getName());
+      }
       Set<Cookie> cookiesListNew =  driver.manage().getCookies();
       for(Cookie getcookies :cookiesListNew) {
         System.out.println(getcookies );
@@ -113,7 +117,11 @@ public class SimpleTest {
 
 
     public void testMakingAnOrderByCDEKPayUponReceipt() throws Exception{
-        this.driver.get(ITEST_HOME_PAGE);
+      Set<Cookie> allCookies = driver.manage().getCookies();
+      for (Cookie cookie : allCookies) {
+        driver.manage().deleteCookieNamed(cookie.getName());
+      }
+      this.driver.get(ITEST_HOME_PAGE);
       System.out.println("начало первого теста" );
       if(this.driver.findElementsByXPath("//button[@data-testid='understand-button']").size() >0){
           waitForElementPresent(By.xpath("//button[@data-testid='understand-button']"),"все понятно не появилось", 10);
