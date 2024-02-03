@@ -79,8 +79,9 @@ public class SimpleTest {
         this.takeSceenshot();
       }
         System.out.println("вход для второго теста" );
-        waitForElementPresent(By.xpath("//button[@data-testid='authorization-button']"), "кнопка войти не появилась", 10);
-        this.driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
+        this.takeSceenshot(); // By.xpath("//button[@data-testid='authorization-button']")
+        waitForElementPresent(By.xpath("//button[contains(.,'Вход / Регистрация')]"), "кнопка войти не появилась", 10);
+        this.driver.findElement(By.xpath("//button[contains(.,'Вход / Регистрация')]")).click();
         this.takeSceenshot();
         driver.findElement(By.name("login")).clear();
         driver.findElement(By.name("login")).sendKeys(LOGIN_MARKET);
@@ -137,8 +138,9 @@ public class SimpleTest {
 
         }
         System.out.println("вход для первого теста" );
-        waitForElementPresent(By.xpath("//button[@data-testid='authorization-button']"), "кнопка войти не появилась", 10);
-        this.driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
+        this.takeSceenshot();
+        waitForElementPresent(By.xpath("//button[contains(.,'Вход / Регистрация')]"), "кнопка войти не появилась", 10);
+        this.driver.findElement(By.xpath("//button[contains(.,'Вход / Регистрация')]")).click();
         this.takeSceenshot();
         driver.findElement(By.name("login")).clear();
         driver.findElement(By.name("login")).sendKeys(LOGIN_MARKET);
