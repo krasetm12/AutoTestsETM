@@ -156,12 +156,13 @@ public class SimpleTest {
       //this.takeSceenshot();
         waitForElementPresent(By.xpath("//button[@data-testid='authorization-button']"), "кнопка войти не появилась", 10);
         this.driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
-        this.takeSceenshot();
+
         driver.findElement(By.name("login")).clear();
         driver.findElement(By.name("login")).sendKeys(LOGIN_MARKET);
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
         driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
+      this.takeSceenshot();
       waitForElementPresent(By.xpath("button[contains(.,'В следующий раз')]"), "в следующий раз", 10);
         driver.findElement(By.xpath("//button[contains(.,'В следующий раз')]")).click();
         driver.findElement(By.xpath("//button[@id='composition-button']")).click();
