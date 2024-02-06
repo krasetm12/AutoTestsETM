@@ -55,7 +55,7 @@ public class SimpleTest {
 
 
     public void testMakingAnOrderByPickUpByWriteScore() throws Exception {
-      this.driver.get(ITEST_HOME_PAGE);
+      /*this.driver.get(ITEST_HOME_PAGE);
       System.out.println("начало второго теста" );
       Set<Cookie> allCookies = driver.manage().getCookies();
       for (Cookie cookie : allCookies) {
@@ -89,7 +89,7 @@ public class SimpleTest {
       }
         //waitForElementPresent(By.xpath("//button[contains(.,'Вход / Регистрация')]"), "кнопка войти не появилась", 10);
         //this.driver.findElement(By.xpath("//button[contains(.,'Вход / Регистрация')]")).click();
-        this.takeSceenshot();
+        /*this.takeSceenshot();
         driver.findElement(By.name("login")).clear();
         driver.findElement(By.name("login")).sendKeys(LOGIN_MARKET);
         driver.findElement(By.name("password")).clear();
@@ -109,7 +109,7 @@ public class SimpleTest {
       driver.findElement(By.xpath("//li[@data-testid='drop-menu-item-exit']")).click();
       System.out.println("конец второго теста" );
 
-      /*MainPageObject.waitForElementAndSendKeys("//input[@name='nameEst']", "999/0817524", "not found the data entry element ", 5);
+      MainPageObject.waitForElementAndSendKeys("//input[@name='nameEst']", "999/0817524", "not found the data entry element ", 5);
       MainPageObject.waitForElementAndClick("//button[@data-testid='search-button']", "not found and click element of search", 5);
 
       MainPageObject.waitForElementAndClickable("//span[contains(.,'999/0816925')]", "not found element add to cart", 5);
@@ -135,12 +135,12 @@ public class SimpleTest {
           waitForElementPresent(By.xpath("//button[@data-testid='understand-button']"),"все понятно не появилось", 10);
           System.out.println("все понятно" );
           this.driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
-          this.takeSceenshot();
+          //this.takeSceenshot();
         }
         else if(this.driver.findElementsByXPath("//button[@data-testid='okay-button']").size() >0) {
 
           System.out.println("все верно" );
-          this.takeSceenshot();
+          //this.takeSceenshot();
           this.driver.findElement(By.xpath("//button[@data-testid='okay-button']")).click();
 
         }
