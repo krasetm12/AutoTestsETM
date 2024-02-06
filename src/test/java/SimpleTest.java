@@ -163,7 +163,7 @@ public class SimpleTest {
         driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
         driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
       this.takeSceenshot();
-      waitForElementPresent(By.xpath("button[contains(.,'В следующий раз')]"), "в следующий раз", 10);
+      waitForElementPresent(By.xpath("//button[contains(.,'В следующий раз')]"), "в следующий раз", 10);
         driver.findElement(By.xpath("//button[contains(.,'В следующий раз')]")).click();
         driver.findElement(By.xpath("//button[@id='composition-button']")).click();
       //String sessionId = driver.getSessionId().toString();
