@@ -145,22 +145,25 @@ public class SimpleTest {
 
         }
         System.out.println("вход для первого теста" );
+
+//      try {
+//        WebElement button = driver.findElement(By.xpath("//button[@data-testid='authorization-button']"));
+//        button.click();
+//      } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+//        WebElement button = driver.findElement(By.xpath("//button[@data-testid='authorization-button']"));
+//        button.click();
+//      }
+      //this.takeSceenshot();
+        waitForElementPresent(By.xpath("//button[@data-testid='authorization-button']"), "кнопка войти не появилась", 10);
+        this.driver.findElement(By.xpath("//button[@data-testid='authorization-button']")).click();
         this.takeSceenshot();
-      try {
-        WebElement button = driver.findElement(By.xpath("//button[@data-testid='authorization-button']"));
-        button.click();
-      } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-        WebElement button = driver.findElement(By.xpath("//button[@data-testid='authorization-button']"));
-        button.click();
-      }
-        //waitForElementPresent(By.xpath("//button[contains(.,'Вход / Регистрация')]"), "кнопка войти не появилась", 10);
-        //this.driver.findElement(By.xpath("//button[contains(.,'Вход / Регистрация')]")).click();
-        //this.takeSceenshot();
         driver.findElement(By.name("login")).clear();
         driver.findElement(By.name("login")).sendKeys(LOGIN_MARKET);
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
         driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
+      waitForElementPresent(By.xpath("button[contains(.,'В следующий раз')]"), "в следующий раз", 10);
+        driver.findElement(By.xpath("//button[contains(.,'В следующий раз')]")).click();
         driver.findElement(By.xpath("//button[@id='composition-button']")).click();
       //String sessionId = driver.getSessionId().toString();
       Set<Cookie> cookiesListNewm =  driver.manage().getCookies();
