@@ -137,7 +137,7 @@ public class SimpleTest {
           this.driver.findElement(By.xpath("//button[@data-testid='understand-button']")).click();
           //this.takeSceenshot();
         }
-        else if(this.driver.findElementsByXPath("//button[@data-testid='okay-button']").size() >0) {
+      if(this.driver.findElementsByXPath("//button[@data-testid='okay-button']").size() >0) {
 
           System.out.println("все верно" );
           //this.takeSceenshot();
@@ -155,7 +155,7 @@ public class SimpleTest {
       }
         //waitForElementPresent(By.xpath("//button[contains(.,'Вход / Регистрация')]"), "кнопка войти не появилась", 10);
         //this.driver.findElement(By.xpath("//button[contains(.,'Вход / Регистрация')]")).click();
-        this.takeSceenshot();
+        //this.takeSceenshot();
         driver.findElement(By.name("login")).clear();
         driver.findElement(By.name("login")).sendKeys(LOGIN_MARKET);
         driver.findElement(By.name("password")).clear();
