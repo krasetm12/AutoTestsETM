@@ -29,6 +29,7 @@ public class SimpleTest {
     String PASSWORD_MARKET="qakras1234";
     String LOGIN_IPRO="60004392kal";
     String PASSWORD_IPRO="qakras123";
+  By next_time=By.xpath("//button[contains(.,'В следующий раз')]");
 
 
     @BeforeTest
@@ -163,8 +164,9 @@ public class SimpleTest {
         driver.findElement(By.name("password")).sendKeys(PASSWORD_MARKET);
         driver.findElement(By.xpath("//button[@data-testid='go-to-system']")).click();
       this.takeSceenshot();
-      waitForElementPresent(By.xpath("//button[contains(.,'В следующий раз')]"), "в следующий раз", 10);
-        driver.findElement(By.xpath("//button[contains(.,'В следующий раз')]")).click();
+      if (driver.findElements(next_time).size() > 0) {
+        waitForElementPresent(next_time, "в следующий раз", 10);
+        driver.findElement(next_time).click();}
         driver.findElement(By.xpath("//button[@id='composition-button']")).click();
       //String sessionId = driver.getSessionId().toString();
       Set<Cookie> cookiesListNewm =  driver.manage().getCookies();
